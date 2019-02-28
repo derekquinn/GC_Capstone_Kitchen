@@ -8,39 +8,35 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import co.kitchen.kitchen.model.Recipe;
+
+@Repository
+@Transactional
 public class FavoritesDao {
 
-	@Repository
-	@Transactional
-	public class ItemsDao {
-		@PersistenceContext
-		private EntityManager em;
-//		private JdbcTemplate jdbcTemplate;
+	@PersistenceContext
+	private EntityManager em;
 
-		public List<Item> findAll() {
-			// BeanPropertyRowMapper uses the rows from the SQL result create
-			// new Room objects and fill in the values by calling the setters.
-			// Use .query for SQL SELECT statements.
-			return em.createQuery("FROM Item", Item.class).getResultList();
-		}
-
-		public void create(Item aItem) {
-			em.persist(aItem);
-		}
-
-		public Item findById(Long id) {
-			return em.find(Item.class, id);
-		}
-
-		public void update(Item aItem) {
-			em.merge(aItem);
-		}
-
-		public void delete(Long id) {
-			// Deleting with Hibernate entity manager requires fetching a reference first.
-			Item aItem = em.getReference(Item.class, id);
-			em.remove(aItem);
-		}
+	public List<Recipe> findAll() {
+		return em.createQuery("FROM Recipe", Recipe.class).getResultList();
 	}
+
+	public void create(Recipe aRecipe) {
+		em.persist(aRecipe);
+	}
+
+	public Recipe findById(Long id) {
+		return em.find(Recipe.class, id);
+	}
+
+	public void update(Recipe aRecipe) {
+		em.merge(aRecipe);
+	}
+
+	public void delete(Long id) {
+		Recipe aRecipe = em.getReference(Recipe.class, id);
+		em.remove(aRecipe);
+	}
+
 
 }
