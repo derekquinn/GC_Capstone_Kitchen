@@ -6,15 +6,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<%@include file="partials/header.jsp" %>
-<title> MyKitchen | Home</title>
+<%@include file="partials/header.jsp" %>
+	<c:choose>
+		<c:when test="${ not empty profile }">
+		<title> ${ profile.firstname }'s Kitchen </title>
+		</c:when>
+		
+		<c:otherwise>
+		<title> My Kitchen </title>
+		</c:otherwise>
+	</c:choose>
 </head>
 <body>
 <div>
 
 <a href = "/recipes">Recipes</a>
-<a href = "/user-login">Login</a>
-<a href = "/user-registration"> Create Account</a>
 
 </div>
 
