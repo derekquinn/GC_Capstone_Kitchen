@@ -9,13 +9,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-test
-test
-test
-omg
+<div>
 
-hi Dereq
+<a href = "/recipes">Recipes</a>
+<a href = "/user-login">Login</a>
+<a href = "/user-registration"> Create Account</a>
 
-hi KH, lets kick this project's ass? 
+</div>
+
+
 </body>
 </html>
