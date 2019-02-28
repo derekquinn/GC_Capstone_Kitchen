@@ -1,7 +1,5 @@
 package co.kitchen.kitchen.model;
 
-import co.kitchen.kitchen.entities.EnercKcal;
-
 public class Nutrients {
 
 	private Nutrient ENERC_KCAL;
@@ -32,6 +30,7 @@ public class Nutrients {
 	private Nutrient VITB12;
 	private Nutrient TOCPHA;
 	private Nutrient VITK1;
+	
 	public Nutrient getENERC_KCAL() {
 		return ENERC_KCAL;
 	}
@@ -199,6 +198,15 @@ public class Nutrients {
 	}
 	public void setVITK1(Nutrient vITK1) {
 		VITK1 = vITK1;
+	}
+	@Override
+	public String toString() {
+		return "Nutrients [ENERC_KCAL=" + ENERC_KCAL + ", FAT=" + FAT + ", FASAT=" + FASAT + ", FAMS=" + FAMS
+				+ ", FAPU=" + FAPU + ", CHOCDF=" + CHOCDF + ", FIBTG=" + FIBTG + ", SUGAR=" + SUGAR + ", PROCNT="
+				+ PROCNT + ", CHOLE=" + CHOLE + ", NA=" + NA + ", CA=" + CA + ", MG=" + MG + ", K=" + K + ", FE=" + FE
+				+ ", ZN=" + ZN + ", P=" + P + ", VITA_RAE=" + VITA_RAE + ", VITC=" + VITC + ", THIA=" + THIA + ", RIBF="
+				+ RIBF + ", NIA=" + NIA + ", VITB6A=" + VITB6A + ", FOLDFE=" + FOLDFE + ", FOLDFD=" + FOLDFD
+				+ ", VITB12=" + VITB12 + ", TOCPHA=" + TOCPHA + ", VITK1=" + VITK1 + "]";
 	}
 	
 }
