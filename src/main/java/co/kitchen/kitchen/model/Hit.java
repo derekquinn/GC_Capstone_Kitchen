@@ -1,19 +1,17 @@
 package co.kitchen.kitchen.model;
 
-import java.util.List;
-
-public class Hits {
+public class Hit {
 	
-	private List<Recipe> recipe;
+	private Recipe recipe;
 	private Boolean bookmarked;
 	private Boolean bought;
 	
 	
-	public List<Recipe> getRecipe() {
+	public Recipe getRecipe() {
 		return recipe;
 	}
 
-	public void setRecipe(List<Recipe> recipe) {
+	public void setRecipe(Recipe recipe) {
 		this.recipe = recipe;
 	}
 
@@ -32,10 +30,7 @@ public class Hits {
 	public void setBought(Boolean bought) {
 		this.bought = bought;
 	}
-
 	
-
-		
-	}
+}
 	
 	

@@ -1,6 +1,8 @@
 package co.kitchen.kitchen.model;
 
-public class Recipe extends Hits {
+import java.util.List;
+
+public class Recipe extends Hit {
 	
 	private String uri;
 	private String label;
@@ -9,8 +11,14 @@ public class Recipe extends Hits {
 	private String url;
 	private String shareAs;
 	private Integer yield;
+	private List<String> dietLabels;
+	private List<String> healthLabels;
+	private List<String> cautions;
+	private List<Ingredient> ingredients;
 	private Double calories;
 	private Double totalWeight;
+	private Double totalTime;
+	private Nutrients totalNutrients;
 	
 	public String getUri() {
 		return uri;
