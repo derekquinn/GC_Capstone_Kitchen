@@ -3,6 +3,9 @@ package co.kitchen.kitchen;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -17,10 +20,11 @@ public class RecipeService {
 	private String appId = "8396f82d";
 
 	private RestTemplate restTemplate = new RestTemplate();
+	
 
 	public List<Recipe> findRecipes(String search) {
 
-		String url = UriComponentsBuilder.fromHttpUrl("https:api.edamam.com/search")
+		String url = UriComponentsBuilder.fromHttpUrl("https://api.edamam.com/search")
 				.queryParam("q", search)
 				.queryParam("appid", appId)
 				.queryParam("recipe.key", key)
