@@ -16,7 +16,7 @@ import co.kitchen.kitchen.model.RecipeResponse;
 
 @Component
 public class RecipeService {
-	@Value("${app_key}")
+	@Value("${recipe.key}")
 	private String key;
 	private String appId = "8396f82d";
 
@@ -29,10 +29,8 @@ public class RecipeService {
 				.queryParam("app_id", appId)
 				.queryParam("app_key", key)
 				.toUriString();
-
+		
 		RecipeResponse response = restTemplate.getForObject(url, RecipeResponse.class);
-
-		System.out.println("toString = " + response.getHits().get(1).toString());
 		
 		return response.getHits();
 
