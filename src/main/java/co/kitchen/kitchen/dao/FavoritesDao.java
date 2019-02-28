@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import co.kitchen.kitchen.entity.Favorite;
 import co.kitchen.kitchen.model.Recipe;
-import jB.cafe.entity.CartItem;
 
 @Repository
 @Transactional
