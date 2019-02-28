@@ -7,6 +7,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import co.kitchen.kitchen.entity.User;
+
 @Repository
 @Transactional
 public class UserDao {

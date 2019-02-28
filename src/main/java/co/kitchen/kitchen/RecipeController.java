@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import co.kitchen.kitchen.model.Hit;
 import co.kitchen.kitchen.model.Recipe;
+import co.kitchen.kitchen.service.RecipeService;
 
 @Controller
 public class RecipeController {

@@ -1,4 +1,4 @@
-package co.kitchen.kitchen;
+package co.kitchen.kitchen.service;
 
 import java.util.List;
 
