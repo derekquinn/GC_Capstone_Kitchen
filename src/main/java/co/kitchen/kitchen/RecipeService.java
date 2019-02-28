@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import co.kitchen.kitchen.model.Hit;
 import co.kitchen.kitchen.model.Recipe;
 import co.kitchen.kitchen.model.RecipeResponse;
 
@@ -21,18 +22,18 @@ public class RecipeService {
 
 	private RestTemplate restTemplate = new RestTemplate();
 	
-	public List<Recipe> findRecipes(String search) {
+	public List<Hit> findRecipes(String search) {
 
 		String url = UriComponentsBuilder.fromHttpUrl("https://api.edamam.com/search")
 				.queryParam("q", search)
 				.queryParam("app_id", appId)
 				.queryParam("app_key", key)
 				.toUriString();
-		
-		System.out.println(url);
 
 		RecipeResponse response = restTemplate.getForObject(url, RecipeResponse.class);
 
+		System.out.println("toString = " + response.getHits().get(1).toString());
+		
 		return response.getHits();
 
 	}

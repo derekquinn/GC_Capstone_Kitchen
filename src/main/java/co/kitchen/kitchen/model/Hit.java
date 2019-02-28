@@ -30,6 +30,11 @@ public class Hit {
 	public void setBought(Boolean bought) {
 		this.bought = bought;
 	}
+
+	@Override
+	public String toString() {
+		return "Hit [recipe=" + recipe + ", bookmarked=" + bookmarked + ", bought=" + bought + "]";
+	}
 	
 }
 	

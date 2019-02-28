@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import co.kitchen.kitchen.model.Hit;
 import co.kitchen.kitchen.model.Recipe;
 
 @Controller
@@ -20,7 +21,7 @@ public class RecipeController {
 	@RequestMapping("/recipes")
 	public ModelAndView searchRecipes(@RequestParam(name="search", defaultValue="brisket") String search) {
 		
-		List<Recipe> recipes = recipeService.findRecipes(search);
+		List<Hit> recipes = recipeService.findRecipes(search);
 		
 		return new ModelAndView("recipes", "recipes", recipes);
 		

@@ -6,7 +6,7 @@ public class RecipeResponse {
 	
 	private String q;//search field
 	private Integer count;
-	private List<Recipe> hits;
+	private List<Hit> hits;
 	
 	public String getQ() {
 		return q;
@@ -24,11 +24,11 @@ public class RecipeResponse {
 		this.count = count;
 	}
 	
-	public List<Recipe> getHits() {
+	public List<Hit> getHits() {
 		return hits;
 	}
 	
-	public void setHits(List<Recipe> hits) {
+	public void setHits(List<Hit> hits) {
 		this.hits = hits;
 	}
 	
