@@ -24,9 +24,9 @@ public class UserDao {
 
 	}
 
-	public User findByEmail(String email) {
+	public User findByUsername(String username) {
 		try {
-			return em.createQuery("FROM User WHERE email = :email", User.class).setParameter("email", email)
+			return em.createQuery("FROM User WHERE username = :username", User.class).setParameter("username", username)
 					.getSingleResult();
 		} catch (NoResultException ex) {
 			// No user with that username found.
@@ -35,8 +35,8 @@ public class UserDao {
 	}
 
 	
-	public void update(User user) {
-		em.merge(user);
+	public void update(User aUser) {
+		em.merge(aUser);
 	}
 
 	
