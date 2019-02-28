@@ -16,20 +16,12 @@
 		<button>Search</button>
 
 	</form>
-
-	<c:forEach var="recipe" items="${ recipes }">
-
-		<div>
-
-			<h3>${recipes.label}</h3>
-			<p>
-				<img src="${ recipes.image }">
-			</p>
+	<div>
+	${ recipe.label }	
+	</div>
 
 
-		</div>
 
-	</c:forEach>
 
 </body>
 </html>

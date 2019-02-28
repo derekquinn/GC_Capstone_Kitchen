@@ -21,9 +21,10 @@ public class RecipeController {
 	@RequestMapping("/recipes")
 	public ModelAndView searchRecipes(@RequestParam(name="search", defaultValue="brisket") String search) {
 		
-		List<Hit> recipes = recipeService.findRecipes(search);
+		List<Hit> hits = recipeService.findRecipes(search);
+		Recipe recipe = hits.get(0).getRecipe();
 		
-		return new ModelAndView("recipes", "recipes", recipes);
+		return new ModelAndView("recipes", "recipe", recipe);
 		
 	}
 	
