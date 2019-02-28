@@ -17,7 +17,18 @@
 
 	</form>
 	<div>
-	${ recipe.label }	
+	<table>
+	
+	
+	<th>Label</th>
+	<c:forEach var="hit" items="${ hits }"> 
+	<tr><td>${ hit.recipe.label }</td><td><img src="${ hit.recipe.image }" width="20%"></td></tr>
+		
+		
+		
+		</c:forEach>
+	</table>
+
 	</div>
 
 		<a href="/">Go Home</a>

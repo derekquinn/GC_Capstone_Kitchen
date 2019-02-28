@@ -23,9 +23,9 @@ public class RecipeController {
 	public ModelAndView searchRecipes(@RequestParam(name="search", defaultValue="brisket") String search) {
 		
 		List<Hit> hits = recipeService.findRecipes(search);
-		Recipe recipe = hits.get(0).getRecipe();
+
 		
-		return new ModelAndView("recipes", "recipe", recipe);
+		return new ModelAndView("recipes", "hits", hits);
 		
 	}
 	
