@@ -33,8 +33,12 @@ public class FavoritesController {
 			aFavorite.setLabel(aRecipe.getLabel());
 			aFavorite.setImage(aRecipe.getImage());
 			aFavorite.setUrl(aRecipe.getUrl());
-			///////// (if/else to avoid dupes)
-			favoritesDao.create(aFavorite);
+			
+			if (favoritesDao.contains(aFavorite)) {
+				favoritesDao.delete(aFavorite);
+			} else {
+				favoritesDao.create(aFavorite);
+			}
 			return new ModelAndView("redirect:/favorite");
 		}
 

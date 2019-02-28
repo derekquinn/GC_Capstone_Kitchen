@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import co.kitchen.kitchen.entity.Favorite;
 import co.kitchen.kitchen.model.Recipe;
+import jB.cafe.entity.CartItem;
 
 @Repository
 @Transactional
@@ -38,6 +39,13 @@ public class FavoritesDao {
 		Favorite aFavorite = em.getReference(Favorite.class, id);
 		em.remove(aFavorite);
 	}
+	
+	public void delete(Favorite aFavorite) {
+		em.remove(em.contains(aFavorite) ? aFavorite : em.merge(aFavorite));
+	}
 
-
+	public boolean contains(Favorite aFavorite) {
+		return em.contains(aFavorite);
+	}
+	
 }
