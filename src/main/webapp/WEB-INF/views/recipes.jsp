@@ -20,7 +20,7 @@
 	${ recipe.label }	
 	</div>
 
-
+		<a href="/">Go Home</a>
 
 
 </body>

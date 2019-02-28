@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+	<%@include file="partials/header.jsp" %>
+<title> MyKitchen | Home</title>
 </head>
 <body>
 <div>

@@ -9,6 +9,7 @@
 <title> MyKitchen | Registration</title>
 </head>
 <body>
+<div>
 <p>${ message }</p>
 
 
@@ -49,10 +50,14 @@
 		</table>
 
 		<button type="submit">Submit</button>
+		
+		
 
 	</form>
+	
+		<a href="/">Go Home</a>
 
-
+</div>
 
 </body>
 </html>
