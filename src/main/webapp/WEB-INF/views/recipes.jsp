@@ -23,7 +23,7 @@
 	<tr><th>Label</th></tr>
 	<c:forEach var="hit" items="${ hits }"> 
 	
-	<tr><td>${ hit.recipe.label }</td><td><img src="${ hit.recipe.image }" width="20%"></td><td><button type="submit" name="${ hit.bookmarked }">Favorite</button></td></tr>
+	<tr><td>${ hit.recipe.label }</td><td><img src="${ hit.recipe.image }" width="20%"></td><td><button type="submit" name="favorite" value="${ hit.recipe }">Favorite</button></td></tr>
 		
 		
 		

@@ -12,7 +12,7 @@ public class Favorite {
 	private Long id;
 	private String label;
 	private String image;
-	private String source;
+	private String url;
 	
 	public Long getId() {
 		return id;
@@ -32,16 +32,16 @@ public class Favorite {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	public String getSource() {
-		return source;
+	public String getUrl() {
+		return url;
 	}
-	public void setSource(String source) {
-		this.source = source;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	
 	@Override
 	public String toString() {
-		return "Favorite [id=" + id + ", label=" + label + ", image=" + image + ", source=" + source + "]";
+		return "Favorite [id=" + id + ", label=" + label + ", image=" + image + ", source=" + url + "]";
 	}
 	
 }

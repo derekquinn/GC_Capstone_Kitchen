@@ -1,5 +1,7 @@
 package co.kitchen.kitchen;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.kitchen.kitchen.dao.FavoritesDao;
+import co.kitchen.kitchen.entity.Favorite;
+import co.kitchen.kitchen.model.Hit;
 import co.kitchen.kitchen.model.Recipe;
 
 @Controller
@@ -17,17 +21,21 @@ public class FavoritesController {
 	private FavoritesDao favoritesDao;
 	
 	// ADD AN ITEM / PRODUCT
-		@RequestMapping("/add-item")
-
+		@RequestMapping("/favorite")
 		public ModelAndView addItem() {
-
-			return new ModelAndView("/add-item");
+			List<Favorite> favorites = favoritesDao.findAll();
+			return new ModelAndView("/favorite", "favorites", favorites);
 		}
 
-		@PostMapping("/add-item")
+		@RequestMapping("/add-item")
 		public ModelAndView submitCreateForm(@RequestParam("favorite") Recipe aRecipe) {
-			favoritesDao.create(aRecipe);
-			return new ModelAndView("redirect:/admin");
+			Favorite aFavorite = new Favorite();
+			aFavorite.setLabel(aRecipe.getLabel());
+			aFavorite.setImage(aRecipe.getImage());
+			aFavorite.setUrl(aRecipe.getUrl());
+			///////// (if/else to avoid dupes)
+			favoritesDao.create(aFavorite);
+			return new ModelAndView("redirect:/favorite");
 		}
 
 	// DELETE AN ITEM / PRODUCT
