@@ -15,20 +15,21 @@ import co.kitchen.kitchen.model.RecipeResponse;
 
 @Component
 public class RecipeService {
-	@Value("${recipe.key}")
+	@Value("${app_key}")
 	private String key;
 	private String appId = "8396f82d";
 
 	private RestTemplate restTemplate = new RestTemplate();
 	
-
 	public List<Recipe> findRecipes(String search) {
 
 		String url = UriComponentsBuilder.fromHttpUrl("https://api.edamam.com/search")
 				.queryParam("q", search)
-				.queryParam("appid", appId)
-				.queryParam("recipe.key", key)
+				.queryParam("app_id", appId)
+				.queryParam("app_key", key)
 				.toUriString();
+		
+		System.out.println(url);
 
 		RecipeResponse response = restTemplate.getForObject(url, RecipeResponse.class);
 
