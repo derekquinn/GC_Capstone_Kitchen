@@ -18,18 +18,18 @@ public class RecipeService {
 
 	private RestTemplate restTemplate = new RestTemplate();
 
-	public List<Recipe> findRecipes(String search){
-		
+	public List<Recipe> findRecipes(String search) {
+
 		String url = UriComponentsBuilder.fromHttpUrl("https:api.edamam.com/search")
 				.queryParam("q", search)
 				.queryParam("appid", appId)
 				.queryParam("recipe.key", key)
 				.toUriString();
-		
+
 		RecipeResponse response = restTemplate.getForObject(url, RecipeResponse.class);
-		
+
 		return response.getHits();
-		
+
 	}
 
 }
