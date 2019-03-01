@@ -5,13 +5,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.kitchen.kitchen.model.Hit;
-import co.kitchen.kitchen.model.Recipe;
 import co.kitchen.kitchen.service.RecipeService;
 
 @Controller
@@ -27,18 +25,6 @@ public class RecipeController {
 
 		
 		return new ModelAndView("recipes", "hits", hits);
-		
-	}
-	
-	@RequestMapping("/recipes2")
-	public ModelAndView searchRecipe(@RequestParam(name="uri") String uri) {
-		
-		System.out.println("URI RECIPES2 = " + uri);
-		
-		List<Recipe> recipes = recipeService.findRecipe(uri);
-
-		
-		return new ModelAndView("recipes2", "recipe", recipes);
 		
 	}
 	
