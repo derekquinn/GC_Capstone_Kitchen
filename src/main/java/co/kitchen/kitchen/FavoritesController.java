@@ -22,25 +22,32 @@ public class FavoritesController {
 	// ADD AN ITEM / PRODUCT
 		@RequestMapping("/favorite")
 		public ModelAndView addItem() {
+			
+			System.out.println("FAVORITE CONTROLLER");
+			
 			List<Favorite> favorites = favoritesDao.findAll();
 			return new ModelAndView("favorites", "favorites", favorites);
 		}
 
-		@PostMapping("/favorite")
+		@RequestMapping("/favorite-add")
 		public ModelAndView favoriteAdd(@RequestParam("favorite") Recipe aRecipe) {
+			
+			System.out.println("RECIPE = " + aRecipe);
+			
 			Favorite aFavorite = new Favorite();
 			aFavorite.setLabel(aRecipe.getLabel());
 			aFavorite.setImage(aRecipe.getImage());
 			aFavorite.setUrl(aRecipe.getUrl());
 			
-			System.out.println(aRecipe);
+			System.out.println("aFavorite = " + aFavorite);
+			System.out.println("aRecipe = " + aRecipe);
 			
 			if (favoritesDao.contains(aFavorite)) {
 				favoritesDao.delete(aFavorite);
 			} else {
 				favoritesDao.create(aFavorite);
 			}
-			return new ModelAndView("redirect:/favorite");
+			return new ModelAndView("redirect:/recipes");
 		}
 
 	// DELETE AN ITEM / PRODUCT

@@ -18,7 +18,7 @@
 			<c:forEach var="hit" items="${ hits }"> 
 				<tr><td>${ hit.recipe.label }</td><td><img src="${ hit.recipe.image }" width="20%"></td><td></td>
 					<td>		
-						<form action="/favorite" method="post">
+						<form action="/favorite-add">
 							<button type="submit" name="favorite" value="${ hit.recipe }">FAVORITE</button>
 						</form>		
 					</td>

@@ -32,7 +32,7 @@
 	<tr><th>Label</th></tr>
 	<c:forEach var="favorite" items="${ favorites }"> 
 	
-	<tr><td><a href="${ favorite.url }">${ favorite.label }</a></td><td><img src="${ favorite.image }" width="20%"></td><td><button type="submit" name="favorite" value="${ favorite.label }">Favorite</button></td></tr>
+	<tr><td><a href="${ favorite.url }">${ favorite.label }</a></td><td><img src="${ favorite.image }" width="20%"></td></tr>
 		
 		
 		

@@ -31,7 +31,7 @@ public class RecipeService {
 				.queryParam("app_key", key)
 				.toUriString();
 		
-		System.out.println(url);
+		System.out.println("SERVICE = " + url);
 		
 		RecipesResponse response = restTemplate.getForObject(url, RecipesResponse.class);
 		
@@ -39,23 +39,23 @@ public class RecipeService {
 
 	}
 	
-	public List<Recipe> findRecipe(String uri) {
-		
-		String url = UriComponentsBuilder.fromHttpUrl("https://api.edamam.com/search")
-				.queryParam("r", uri)
-				.queryParam("app_id", appId)
-				.queryParam("app_key", key)
-				.toUriString();
-		
-		System.out.println("URL FINDRECIPE = " + url);
-		
-		ResponseEntity<List<Recipe>> response = restTemplate.exchange(url, HttpMethod.GET, null,
-		  new ParameterizedTypeReference<List<Recipe>>(){});
-		
-		System.out.println("RESPONSE SIZE = " + response.getBody().size());
-		
-		return response.getBody();
-
-	}
+//	public List<Recipe> findRecipe(String uri) {
+//		
+//		String url = UriComponentsBuilder.fromHttpUrl("https://api.edamam.com/search")
+//				.queryParam("r", uri)
+//				.queryParam("app_id", appId)
+//				.queryParam("app_key", key)
+//				.toUriString();
+//		
+//		System.out.println("URL FINDRECIPE = " + url);
+//		
+//		ResponseEntity<List<Recipe>> response = restTemplate.exchange(url, HttpMethod.GET, null,
+//		  new ParameterizedTypeReference<List<Recipe>>(){});
+//		
+//		System.out.println("RESPONSE SIZE = " + response.getBody().size());
+//		
+//		return response.getBody();
+//
+//	}
 
 }
