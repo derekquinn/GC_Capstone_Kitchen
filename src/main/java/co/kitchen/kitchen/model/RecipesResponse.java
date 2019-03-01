@@ -2,7 +2,7 @@ package co.kitchen.kitchen.model;
 
 import java.util.List;
 
-public class RecipeResponse {
+public class RecipesResponse {
 	
 	private String q;//search field
 	private Integer count;
