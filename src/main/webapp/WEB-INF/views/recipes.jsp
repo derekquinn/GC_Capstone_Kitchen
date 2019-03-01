@@ -8,40 +8,24 @@
 <title>Recipes | MyKitchen</title>
 </head>
 <body>
-
 	<form>
-
-	<h1>OMG!!!!</h1>
 		<input name="search" />
-
 		<button>Search</button>
-
 	</form>
 	<div>
-	<table>
-	
-	
-	<tr><th>Label</th></tr>
-	<c:forEach var="hit" items="${ hits }"> 
-	
-	<tr><td>${ hit.recipe.label }</td><td><img src="${ hit.recipe.image }" width="20%"></td><td><button type="submit" name="favorite" value="${ hit.recipe }">Favorite</button></td>
-		<td>		
-		<form action="/recipes2">
-			<button type="submit" name="uri" value="${ hit.recipe.uri }">URI</button>
-		</form>		
-		</td></tr>
-
-
-
-		</c:forEach>
-	</table>
-
+		<table>	
+			<tr><th>Label</th></tr>
+			<c:forEach var="hit" items="${ hits }"> 
+				<tr><td>${ hit.recipe.label }</td><td><img src="${ hit.recipe.image }" width="20%"></td><td></td>
+					<td>		
+						<form action="/favorite" method="post">
+							<button type="submit" name="favorite" value="${ hit.recipe }">FAVORITE</button>
+						</form>		
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
 	</div>
-
-		<a href="/">Go Home</a>
-
-		
-
-
+	<a href="/">Go Home</a>
 </body>
 </html>

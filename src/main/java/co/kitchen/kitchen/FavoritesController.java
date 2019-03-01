@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import co.kitchen.kitchen.dao.FavoritesDao;
 import co.kitchen.kitchen.entity.Favorite;
-import co.kitchen.kitchen.model.Hit;
 import co.kitchen.kitchen.model.Recipe;
 
 @Controller
@@ -24,15 +23,17 @@ public class FavoritesController {
 		@RequestMapping("/favorite")
 		public ModelAndView addItem() {
 			List<Favorite> favorites = favoritesDao.findAll();
-			return new ModelAndView("/favorite", "favorites", favorites);
+			return new ModelAndView("favorites", "favorites", favorites);
 		}
 
-		@RequestMapping("/add-item")
-		public ModelAndView submitCreateForm(@RequestParam("favorite") Recipe aRecipe) {
+		@PostMapping("/favorite")
+		public ModelAndView favoriteAdd(@RequestParam("favorite") Recipe aRecipe) {
 			Favorite aFavorite = new Favorite();
 			aFavorite.setLabel(aRecipe.getLabel());
 			aFavorite.setImage(aRecipe.getImage());
 			aFavorite.setUrl(aRecipe.getUrl());
+			
+			System.out.println(aRecipe);
 			
 			if (favoritesDao.contains(aFavorite)) {
 				favoritesDao.delete(aFavorite);
