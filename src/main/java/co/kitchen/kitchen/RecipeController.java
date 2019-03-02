@@ -20,9 +20,6 @@ public class RecipeController {
 
 	@RequestMapping("/recipes")
 	public ModelAndView searchRecipes(@RequestParam(name="search", defaultValue="brisket") String search) {
-		
-		System.out.println("RECIPE CONTROLLER");
-		
 		List<Hit> hits = recipeService.findRecipes(search);
 		return new ModelAndView("recipes", "hits", hits);		
 	}

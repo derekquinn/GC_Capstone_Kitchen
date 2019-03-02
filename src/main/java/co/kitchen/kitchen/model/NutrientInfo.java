@@ -1,6 +1,6 @@
 package co.kitchen.kitchen.model;
 
-public class Nutrient {
+public class NutrientInfo {
 
 	private String label;
 	private Double quantity;

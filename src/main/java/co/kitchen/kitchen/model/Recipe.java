@@ -1,8 +1,9 @@
 package co.kitchen.kitchen.model;
 
 import java.util.List;
+import java.util.Map;
 
-public class Recipe extends Hit {
+public class Recipe {
 	
 	private String uri;
 	private String label;
@@ -18,8 +19,8 @@ public class Recipe extends Hit {
 	private Double calories;
 	private Double totalWeight;
 	private Double totalTime;
-	private Nutrients totalNutrients;
-	private Nutrients totalDaily;
+	private Map<String, NutrientInfo> totalNutrients;
+	private Map<String, NutrientInfo> totalDaily;
 	
 	public String getUri() {
 		return uri;
@@ -105,26 +106,26 @@ public class Recipe extends Hit {
 	public void setTotalTime(Double totalTime) {
 		this.totalTime = totalTime;
 	}
-	public Nutrients getTotalNutrients() {
+	public Map<String, NutrientInfo> getTotalNutrients() {
 		return totalNutrients;
 	}
-	public void setTotalNutrients(Nutrients totalNutrients) {
+	public void setTotalNutrients(Map<String, NutrientInfo> totalNutrients) {
 		this.totalNutrients = totalNutrients;
 	}
-	public Nutrients getTotalDaily() {
+	public Map<String, NutrientInfo> getTotalDaily() {
 		return totalDaily;
 	}
-	public void setTotalDaily(Nutrients totalDaily) {
+	public void setTotalDaily(Map<String, NutrientInfo> totalDaily) {
 		this.totalDaily = totalDaily;
 	}
 	
 	@Override
 	public String toString() {
-		return "Recipe [uri=" + uri + ", label=" + label + ", image=" + image + ", source=" + source + ", url=" + url
-				+ ", shareAs=" + shareAs + ", yield=" + yield + ", dietLabels=" + dietLabels + ", healthLabels="
-				+ healthLabels + ", cautions=" + cautions + ", ingredients=" + ingredients + ", calories=" + calories
-				+ ", totalWeight=" + totalWeight + ", totalTime=" + totalTime + ", totalNutrients=" + totalNutrients
-				+ ", totalDaily=" + totalDaily + "]";
+		return "\n\nRecipe: \n uri=" + uri + "\n label=" + label + "\n image=" + image + "\n source=" + source + "\n url=" + url
+				+ "\n shareAs=" + shareAs + "\n yield=" + yield + "\n dietLabels=" + dietLabels + "\n healthLabels="
+				+ healthLabels + "\n cautions=" + cautions + "\n ingredients=" + ingredients + "\n calories=" + calories
+				+ "\n totalWeight=" + totalWeight + "\n totalTime=" + totalTime + "\n totalNutrients=" + totalNutrients
+				+ "\n totalDaily=" + totalDaily + "\n\n";
 	}
 	
 }

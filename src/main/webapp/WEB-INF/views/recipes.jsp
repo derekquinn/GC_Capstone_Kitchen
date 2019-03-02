@@ -16,13 +16,13 @@
 		<table>	
 			<tr><th>Label</th></tr>
 			<c:forEach var="hit" items="${ hits }"> 
-				<tr><td>${ hit.recipe.label }</td><td><img src="${ hit.recipe.image }" width="20%"></td><td></td>
+			<form action="/favorite-add">
+				<tr><td>${ hit.recipe.label }</td><td><img src="${ hit.recipe.image }" width="20%"></td>
 					<td>		
-						<form action="/favorite-add">
-							<button type="submit" name="favorite" value="${ hit.recipe }">FAVORITE</button>
-						</form>		
+						<button type="submit" name="favorite" >FAVORITE</button>		
 					</td>
 				</tr>
+			</form>	
 			</c:forEach>
 		</table>
 	</div>
