@@ -1,5 +1,8 @@
 package co.kitchen.kitchen.model;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Ingredient {
 	
 	private String text;

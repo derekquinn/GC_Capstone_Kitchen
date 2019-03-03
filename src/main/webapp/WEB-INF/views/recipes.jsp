@@ -12,20 +12,24 @@
 		<input name="search" />
 		<button>Search</button>
 	</form>
+	<form action="/recipes/add">
 	<div>
 		<table>	
 			<tr><th>Label</th></tr>
+			
 			<c:forEach var="hit" items="${ hits }"> 
-			<form action="/favorite-add">
-				<tr><td>${ hit.recipe.label }</td><td><img src="${ hit.recipe.image }" width="20%"></td>
-					<td>		
-						<button type="submit" name="favorite" >FAVORITE</button>		
+			
+				<tr><td><a href="${ hit.recipe.url }">${ hit.recipe.label }</a></td><td><img src="${ hit.recipe.image }" width="20%"></td>
+					<td>	
+					<button type=submit name=hitRecipe value=${ hit }>FAVORITE</button>		
 					</td>
 				</tr>
-			</form>	
+			
 			</c:forEach>
+			
 		</table>
 	</div>
+	</form>
 	<a href="/">Go Home</a>
 </body>
 </html>

@@ -1,7 +1,10 @@
 package co.kitchen.kitchen.model;
 
-public class NutrientInfo {
+import javax.persistence.Embeddable;
 
+@Embeddable
+public class NutrientInfo {
+	
 	private String label;
 	private Double quantity;
 	private String unit;

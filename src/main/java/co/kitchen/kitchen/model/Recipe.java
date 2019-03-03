@@ -3,8 +3,17 @@ package co.kitchen.kitchen.model;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Embeddable;
+//import javax.persistence.Embedded;
+//
+//import org.hibernate.annotations.Type;
+
+@Embeddable
 public class Recipe {
 	
+	@Column(unique=true)
 	private String uri;
 	private String label;
 	private String image;
@@ -12,14 +21,23 @@ public class Recipe {
 	private String url;
 	private String shareAs;
 	private Integer yield;
+	@ElementCollection
 	private List<String> dietLabels;
+	@ElementCollection
 	private List<String> healthLabels;
+	@ElementCollection
 	private List<String> cautions;
+	@ElementCollection 
+//	@Embedded @Type(type="Ingredient")
 	private List<Ingredient> ingredients;
 	private Double calories;
 	private Double totalWeight;
 	private Double totalTime;
+	@ElementCollection 
+//	@Embedded @Type(type="NutrientInfo")
 	private Map<String, NutrientInfo> totalNutrients;
+	@ElementCollection 
+//	@Embedded @Type(type="NutrientInfo")
 	private Map<String, NutrientInfo> totalDaily;
 	
 	public String getUri() {
