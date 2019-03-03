@@ -12,7 +12,7 @@
 		<input name="search" />
 		<button>Search</button>
 	</form>
-	<form action="/recipes/add">
+	<form method="post">
 	<div>
 		<table>	
 			<tr><th>Label</th></tr>
@@ -21,7 +21,7 @@
 			
 				<tr><td><a href="${ hit.recipe.url }">${ hit.recipe.label }</a></td><td><img src="${ hit.recipe.image }" width="20%"></td>
 					<td>	
-					<button type=submit name=hitRecipe value=${ hit }>FAVORITE</button>		
+					<input type="radio" name="uri" value="${ hit.recipe.uri }"/>		
 					</td>
 				</tr>
 			
@@ -29,6 +29,7 @@
 			
 		</table>
 	</div>
+	<button type="submit">submit</button>
 	</form>
 	<a href="/">Go Home</a>
 </body>
