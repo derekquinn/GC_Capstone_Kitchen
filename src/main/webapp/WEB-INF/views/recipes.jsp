@@ -4,42 +4,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="style.css">
 	<c:choose>
 		<c:when test="${ not empty profile }">
 		<title> Recipes | ${ profile.firstname }'s Kitchen </title>
 		</c:when>
-		
 		<c:otherwise>
 		<title> Recipes | My Kitchen </title>
 		</c:otherwise>
 	</c:choose>
 </head>
 <body>
-	<form>
-		<input name="search" />
-		<button>Search</button>
-	</form>
-	<form method="post">
-	<div>
-		<table>	
-			<tr><th>Label</th></tr>
-			
-			<c:forEach var="hit" items="${ hits }"> 
-			
-				<tr><td><a href="${ hit.recipe.url }">${ hit.recipe.label }</a></td><td><img src="${ hit.recipe.image }" width="20%"></td>
-					<td>	
-					<input type="radio" name="uri" value="${ hit.recipe.uri }"/>		
-					</td>
-				</tr>
-			
-			</c:forEach>
-			
-		</table>
+	<div class="background" id="wood">
+	<%@include file="partials/header.jsp" %>
+		<div class="font1">RECIPES</div>
+		<form>
+			<div class="search">
+				<input name="search" /><br>			
+				<div class="btn-search">
+					<button>Search</button>
+				</div>
+			</div>
+		</form>
+		<div class="shop-itemsboard">		
+					<c:forEach var="hit" items="${ hits }"> 
+						<div style="float:left;width:20%">
+							<img class="zoom" src="${ hit.recipe.image }">
+							<p><a href="${ hit.recipe.url }">${ hit.recipe.label }</a>
+							<input class="heart" type="radio" name="uri" value="${ hit.recipe.uri }"/></p>
+						</div>
+					</c:forEach>			
+					<button class="submit" type="submit">Submit</button>
+					<a class="favorites" href="/favorites">favorites</a>
+		</div>
+		<div class="home">Return <a href="/">home</a>.</div>
 	</div>
-	<button type="submit">submit</button>
-	</form>
-	<a href="/">Go Home</a> | 
-	<a href="/favorites">View Favorites</a>
 </body>
 </html>

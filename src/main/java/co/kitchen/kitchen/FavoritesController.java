@@ -22,12 +22,10 @@ public class FavoritesController {
 	// DISPLAY FAVORITES
 		@RequestMapping("/favorites")
 		public ModelAndView addItem(@SessionAttribute(name="profile", required=false) User aUser) {	
-			if (aUser != null) {
+
 				List<Hit> favorites = favoriteHitDao.findByUserId(aUser.getId());
 				return new ModelAndView("favorites", "favorites", favorites);	
-			} else {
-				return new ModelAndView("redirect:/");
-			}	
+
 		}
 
 //		@RequestMapping("/favorite/add")

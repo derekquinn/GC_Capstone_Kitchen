@@ -5,8 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<%@include file="partials/header.jsp" %>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="style.css">
 	<c:choose>
 		<c:when test="${ not empty profile }">
 		<title> ${ profile.firstname }'s Kitchen </title>
@@ -17,13 +17,12 @@
 	</c:choose>
 </head>
 <body>
-<div>
-
-<a href="/recipes">Recipes</a> | 
-<a href="/favorites">Favorites</a>
-
-</div>
-
-
+	<div class="background" id="wood">
+		<div class="overlay">
+			<h2 id="greeting">Hello ${ profile.firstname }<br> Welcome to the Kitchen! <%@include file="partials/header.jsp" %></h2>
+			<h1 id="home-recipes"><a href="/recipes">Recipes</a></h1>
+	  		<h1 id="home-favorites"><a href="/favorites">Favorites</a></h1>
+		</div>
+	</div>
 </body>
 </html>
