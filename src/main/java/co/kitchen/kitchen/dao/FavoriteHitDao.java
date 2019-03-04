@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import co.kitchen.kitchen.entity.User;
 import co.kitchen.kitchen.model.Hit;
 
 @Repository
@@ -19,6 +20,18 @@ public class FavoriteHitDao {
 
 	public List<Hit> findAll() {
 		return em.createQuery("FROM Hit", Hit.class).getResultList();
+	}
+	
+	public List<Hit> findByUser(User user) {
+		return em.createQuery("from Hit where user = :user order by name", Hit.class)
+				.setParameter("user", user)
+				.getResultList();
+	}
+	
+	public List<Hit> findByUserId(Long userId) {
+		return em.createQuery("from Hit where user.id = :user order by name", Hit.class)
+				.setParameter("user", userId)
+				.getResultList();
 	}
 
 	public void create(Hit hit) {

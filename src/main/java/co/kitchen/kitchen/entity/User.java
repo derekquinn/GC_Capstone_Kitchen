@@ -1,11 +1,19 @@
 package co.kitchen.kitchen.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Entity
+import co.kitchen.kitchen.model.Hit;
+
+@Entity(name="User")
+@Table(name="user")
 public class User {
 
 	@Id
@@ -15,6 +23,9 @@ public class User {
 	private String password;
 	private String firstname;
 	private String lastname;
+	
+	@OneToMany(mappedBy="user", cascade = CascadeType.ALL, orphanRemoval = true)	
+	private List<Hit> favorites;
 
 	// no args constructor
 
@@ -72,6 +83,24 @@ public class User {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
+	
+	public List<Hit> getFavorites() {
+		return favorites;
+	}
+	
+	public void setFavorites(List<Hit> favorites) {
+		this.favorites = favorites;
+	}
+	
+    public void addFavorite(Hit favorite) {
+        favorites.add(favorite);
+        favorite.setUser(this);
+    }
+ 
+    public void removeFavorite(Hit favorite) {
+        favorites.remove(favorite);
+        favorite.setUser(null);
+    }
 
 	@Override
 	public String toString() {

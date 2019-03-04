@@ -5,7 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Recipes | MyKitchen</title>
+	<c:choose>
+		<c:when test="${ not empty profile }">
+		<title> Recipes | ${ profile.firstname }'s Kitchen </title>
+		</c:when>
+		
+		<c:otherwise>
+		<title> Recipes | My Kitchen </title>
+		</c:otherwise>
+	</c:choose>
 </head>
 <body>
 	<form>
