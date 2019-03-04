@@ -19,15 +19,14 @@
 	<div class="background" id="wood">
 	<%@include file="partials/header.jsp" %>
 		<div class="font1">FAVORITES</div>	
-			<c:forEach var="hit" items="${ hits }"> 
-				<div style="float:left;width:50%">
-					<img class="zoom" src="${ hit.recipe.image }">
-					<p><a href="${ hit.recipe.url }">${ hit.recipe.label }</a>
-
-				</div>
-			</c:forEach>			
-		</div>
-		<div class="home">Return <a href="/">home</a>.</div>
+		<c:forEach var="hit" items="${ favorites }"> 
+			<div class="favorite">
+				<img class="zoom" src="${ hit.recipe.image }">
+				<p><a href="${ hit.recipe.url }">${ hit.recipe.label }</a>
+			</div>
+		</c:forEach>	
+		<a class="favorites" href="/recipes">recipes</a>		
 	</div>
+	<div class="home">Return <a href="/">home</a>.</div>
 </body>
 </html>

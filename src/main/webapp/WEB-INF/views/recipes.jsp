@@ -32,13 +32,15 @@
 						<div style="float:left;width:20%">
 							<img class="zoom" src="${ hit.recipe.image }">
 							<p><a href="${ hit.recipe.url }">${ hit.recipe.label }</a>
-							<input class="heart" type="radio" name="uri" value="${ hit.recipe.uri }"/></p>
+							<input type="radio" name="uri" value="${ hit.recipe.uri }"/>
+
 						</div>
 					</c:forEach>			
-					<button class="submit" type="submit">Submit</button>
+					<button class="submit" type="submit">submit</button>
 					<a class="favorites" href="/favorites">favorites</a>
 		</div>
 		<div class="home">Return <a href="/">home</a>.</div>
 	</div>
+
 </body>
 </html>

@@ -24,6 +24,7 @@ public class FavoritesController {
 		public ModelAndView addItem(@SessionAttribute(name="profile", required=false) User aUser) {	
 
 				List<Hit> favorites = favoriteHitDao.findByUserId(aUser.getId());
+				System.out.println("favorites length = " + favorites.size());
 				return new ModelAndView("favorites", "favorites", favorites);	
 
 		}
