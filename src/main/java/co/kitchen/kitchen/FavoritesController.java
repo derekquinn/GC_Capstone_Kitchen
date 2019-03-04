@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.kitchen.kitchen.dao.FavoriteHitDao;
+import co.kitchen.kitchen.entity.User;
 import co.kitchen.kitchen.model.Hit;
 
 @Controller
@@ -18,13 +20,14 @@ public class FavoritesController {
 	private FavoriteHitDao favoriteHitDao;
 	
 	// DISPLAY FAVORITES
-		@RequestMapping("/favorite")
-		public ModelAndView addItem() {
-			
-			System.out.println("FAVORITE CONTROLLER");
-			
-			List<Hit> favorites = favoriteHitDao.findAll();
-			return new ModelAndView("favorites", "favorites", favorites);
+		@RequestMapping("/favorites")
+		public ModelAndView addItem(@SessionAttribute(name="profile", required=false) User aUser) {	
+			if (aUser != null) {
+				List<Hit> favorites = favoriteHitDao.findByUserId(aUser.getId());
+				return new ModelAndView("favorites", "favorites", favorites);	
+			} else {
+				return new ModelAndView("redirect:/");
+			}	
 		}
 
 //		@RequestMapping("/favorite/add")
@@ -41,7 +44,7 @@ public class FavoritesController {
 
 	// DELETE AN ITEM / PRODUCT
 
-		@RequestMapping("/favorite/{id}/delete")
+		@RequestMapping("/favorites/{id}/delete")
 		public ModelAndView delete(@PathVariable("id") Long id) {
 			favoriteHitDao.delete(id);
 			return new ModelAndView("redirect:/favorite");

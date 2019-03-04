@@ -9,38 +9,22 @@
 	<c:choose>
 		<c:when test="${ not empty profile }">
 		<title> ${ profile.firstname }'s Kitchen </title>
-		</c:when>
-		
+		</c:when>		
 		<c:otherwise>
 		<title> My Kitchen </title>
 		</c:otherwise>
 	</c:choose>
 </head>
 <body>
-
-	<form>
-
-		<input name="search" />
-
-		<button>Search</button>
-
-	</form>
 	<div>
-	<table>
-	
-	
-	<tr><th>Label</th></tr>
-	<c:forEach var="favorite" items="${ favorites }"> 
-	
-	<tr><td><a href="${ favorite.url }">${ favorite.label }</a></td><td><img src="${ favorite.image }" width="20%"></td></tr>
-		
-		
-		
-		</c:forEach>
-	</table>
-
+		<table>	
+			<tr><th>Label</th></tr>
+			<c:forEach var="favorite" items="${ favorites }"> 	
+				<tr><td><a href="${ favorite.recipe.url }">${ favorite.recipe.label }</a></td><td><img src="${ favorite.recipe.image }" width="20%"></td></tr>
+			</c:forEach>
+		</table>
 	</div>
-
-		<a href="/">Go Home</a>
+	<a href="/">Go Home</a> | 
+	<a href="/recipes">Find Recipes</a>
 </body>
 </html>

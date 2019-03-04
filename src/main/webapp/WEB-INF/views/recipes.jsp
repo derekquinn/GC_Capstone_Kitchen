@@ -39,6 +39,7 @@
 	</div>
 	<button type="submit">submit</button>
 	</form>
-	<a href="/">Go Home</a>
+	<a href="/">Go Home</a> | 
+	<a href="/favorites">View Favorites</a>
 </body>
 </html>

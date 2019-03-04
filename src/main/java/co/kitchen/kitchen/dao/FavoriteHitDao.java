@@ -3,6 +3,7 @@ package co.kitchen.kitchen.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
@@ -28,10 +29,20 @@ public class FavoriteHitDao {
 				.getResultList();
 	}
 	
+//	public List<Hit> findByUserId(Long userId) {
+//		return em.createQuery("from Hit where user_id = :userId", Hit.class)
+//				.setParameter("userId", userId)
+//				.getResultList();
+//	}
+	
 	public List<Hit> findByUserId(Long userId) {
-		return em.createQuery("from Hit where user.id = :user order by name", Hit.class)
-				.setParameter("user", userId)
-				.getResultList();
+		try {
+			return em.createQuery("FROM Hit WHERE user_id = :userId", Hit.class)
+					.setParameter("userId", userId)
+					.getResultList();
+		} catch (NoResultException ex) {
+			return null;
+		}
 	}
 
 	public void create(Hit hit) {

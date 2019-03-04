@@ -11,7 +11,6 @@
 		<c:when test="${ not empty profile }">
 		<title> ${ profile.firstname }'s Kitchen </title>
 		</c:when>
-		
 		<c:otherwise>
 		<title> My Kitchen </title>
 		</c:otherwise>
@@ -20,7 +19,8 @@
 <body>
 <div>
 
-<a href = "/recipes">Recipes</a>
+<a href="/recipes">Recipes</a> | 
+<a href="/favorites">Favorites</a>
 
 </div>
 
